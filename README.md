@@ -23,6 +23,6 @@ We will be generating gifs for the following words:
 9. north
 10. nominate
 
-To get started, clone this repo, and put a new create-react-app instance in there. This can be done with `npm creat-react-app my-app-name` 
+To get started, clone this repo, and put a new create-react-app instance in there. This can be done with `npm creat-react-app [your name]`. Take the project folder created by the previous command and put it in this repo. 
 
 The rest of the details for this project will be listed under "Issues" as tickets.
