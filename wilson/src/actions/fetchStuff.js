@@ -1,22 +1,17 @@
 import * as types from "../actions/actionTypes"
+import search from "../utils/API";
 
-const url = () => {
-    return "https://api.giphy.com/v1/gifs/search"
-}
-
-const  recieveGiphy = (json) => {
-    return {type: types.GET_GIF_SUCESS};
-}
+const recieveGiphy = (json) => {
+    return {type: types.GET_GIF_SUCCESS, json};
+};
 
 const fetchGiphy = () => {
     return dispatch => {
-        return fetch(url(), {
-            method: "GET",
-            mode: "cors",
-            credentials: "include",
-            headers: {
-                "x-api-key": process.env.SECRET
-            }
-        })
-    }
-}
+       search().then(res => {
+           console.log(res);
+           res.json()
+       }).then(json => dispatch(recieveGiphy(json)))  
+    };
+};
+
+export default { recieveGiphy, fetchGiphy };
