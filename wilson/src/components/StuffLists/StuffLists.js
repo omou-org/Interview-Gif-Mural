@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // console.log(fetchActions);
 const StuffLists = props => {
-    const fetchGifs = useSelector(state => state.giphy.data);
+    const fetchGifs = useSelector(state => state.fetchGiphy.data);
     const dispatch = useDispatch();
     // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
     // console.log(fetchGifs);

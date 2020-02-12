@@ -2,7 +2,7 @@ import * as allActions from "./allActions"
 import search from "../utils/API"
 
 export function recieveGiphy(data) {
-    return {type: allActions.GET_GIF_SUCCESS, giphy: data }
+    return {type: allActions.GET_GIF_SUCCESS, fetchGiphy: data }
 }
 
 
