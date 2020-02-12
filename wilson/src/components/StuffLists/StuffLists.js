@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import * as fetchActions from '../../actions/fetchActions';
 import { useDispatch, useSelector } from 'react-redux';
 
+// console.log(fetchActions);
 const StuffLists = props => {
     const fetchGifs = useSelector(state => state.giphy.data);
     const dispatch = useDispatch();
