@@ -1,16 +1,16 @@
-// export default {
-//     idea:"",
-//     animal:"",
-//     quaint:"",
-//     football:"",
-//     concentration:"",
-//     witness:"",
-//     slap:"",
-//     apparatus:"",
-//     north:"",
-//     nominate:""
-// }
-
 export default {
-    giphyArr: []
+    idea:"",
+    animal:"",
+    quaint:"",
+    football:"",
+    concentration:"",
+    witness:"",
+    slap:"",
+    apparatus:"",
+    north:"",
+    nominate:""
 }
+
+// export default {
+//     giphyArr: []
+// }

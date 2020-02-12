@@ -2,14 +2,14 @@ import * as allActions from "./allActions"
 import search from "../utils/API"
 
 export function recieveGiphy(data) {
-    return {type: allActions.GET_GIF_SUCCESS, fetchGiphy: data }
+    return {type: allActions.GET_GIF_SUCCESS, getGiphy: data }
 }
 
 
 export function fetchGif() {
     return (dispatch) => {
         search().then(res => {
-            console.log(res);
+            // console.log(res);
             if(res.status === 200) {
                 dispatch(recieveGiphy(res.data))
             } else {

@@ -5,7 +5,9 @@ export default function fetchGiphy(state = initialState, action) {
     let newState;
     switch(action.type) {
         case GET_GIF_SUCCESS:
-            newState = action.fetchGiphy
+            // newState = action.fetchGiphy
+            newState = {...state, animal: action.getGiphy}
+            // console.log(newState)
             console.log("This works fetching success");
             return newState;
         case GET_GIF_FAIL: 
