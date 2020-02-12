@@ -4,7 +4,6 @@ import './App.css';
 // import StuffList from "./components/StuffList/StuffList"
 import StuffLists from "./components/StuffLists/StuffLists"
 
-
 function App() {
   return (
     <div className="App">

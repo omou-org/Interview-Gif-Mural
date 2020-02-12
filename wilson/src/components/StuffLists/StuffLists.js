@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 const StuffLists = props => {
     const fetchGifs = useSelector(state => state.giphy.data);
     const dispatch = useDispatch();
-  
+    // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
+    // console.log(fetchGifs);
+
     useEffect(() => {
       dispatch(fetchActions.fetchGif())
     }, [dispatch])
@@ -19,9 +21,11 @@ const StuffLists = props => {
     
     return (
       <>
-      {!fetchGifs ? <div>Loading Gifs...</div> : <div className="">{fetchGifs.map((item, index) => {
+      {/* {!fetchGifs ? <div>Loading Gifs...</div> : <div className="">{fetchGifs.map((item, index) => {
         return renderData(item);
-      })}</div>}
+      })}</div>} */}
+
+    {!fetchGifs ? <div>Loading Gifs...</div> : <div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>}
       </>
     )
   }
