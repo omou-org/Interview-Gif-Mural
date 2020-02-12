@@ -1,22 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import SimpleContainer from './components/Container/Container';
-import SimpleCard from "./components/Card/Card";
-import { useSelector, useDispatch } from "react-redux"
-import allActions from "./actions"
+// import StuffList from "./components/StuffList/StuffList"
+import StuffLists from "./components/StuffLists/StuffLists"
+
 
 function App() {
-  const fetch = useSelector(state => state.giphy)
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(allActions.fetchActions.fetchGif())
-  }, []);
   return (
     <div className="App">
-      <SimpleCard />
+      {/* <StuffList /> */}
+      <StuffLists />
     </div>
   );
 }
 
 export default App;
+

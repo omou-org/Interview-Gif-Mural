@@ -1,26 +1,20 @@
 import initialState from "./initialState";
-import { GET_GIF_SUCCESS, GET_GIF_FAIL, GET_GIF_LOADING } from "../actions/actionTypes";
+import { GET_GIF_SUCCESS, GET_GIF_FAIL, GET_GIF_LOADING } from "../actions/allActions";
 
-const giphy = (state = initialState, action) => {
+export default function giphy(state = initialState, action) {
+    let newState;
     switch(action.type) {
         case GET_GIF_SUCCESS:
-            console.log("This works")
-            return {
-                ...state,
-                idea: "dog",
-            }, console.log(state); 
+            newState = action.giphy
+            console.log("This works fetching success");
+            return newState;
         case GET_GIF_FAIL: 
             console.log("This failed");
             return state;
         case GET_GIF_LOADING:
             console.log("Still Loading");
-            return {
-                ...state,
-                idea:"loading"
-            }, console.log(state);
+            return action;
         default:
             return state;
     }
 }
-
-export default giphy;
