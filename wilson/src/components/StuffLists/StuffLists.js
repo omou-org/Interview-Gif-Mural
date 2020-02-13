@@ -18,7 +18,11 @@ const StuffLists = props => {
     //   return <div key={item.id}>{item.title}</div>
     // }
     
-  
+    // Have if statement up front to optimize load
+
+  if(!fetchGifs) {
+    return <div>Loading Gifs...</div>
+  }
     
     return (
       <>
@@ -26,7 +30,7 @@ const StuffLists = props => {
         return renderData(item);
       })}</div>} */}
 
-    {!fetchGifs ? <div>Loading Gifs...</div> : <div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>}
+    {<div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>}
       </>
     )
   }

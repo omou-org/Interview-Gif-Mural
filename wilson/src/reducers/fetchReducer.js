@@ -1,6 +1,8 @@
 import initialState from "./initialState";
 import { GET_GIF_SUCCESS, GET_GIF_FAIL, GET_GIF_LOADING } from "../actions/allActions";
 
+// Name after the application we're creating I.E. GiphyReducer
+
 export default function fetchGiphy(state = initialState, action) {
     let newState;
     switch(action.type) {
