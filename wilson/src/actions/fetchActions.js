@@ -9,10 +9,14 @@ export function recieveGiphy(data) {
 export function fetchGif(query) {
     return (dispatch) => {
         search(query).then(res => {
-            console.log(res);
+            let arr = []
+            let dataArr = res.data.data
+            arr.push(dataArr)
+            // console.log(arr)
+            // console.log(res.data.data);
             // console.log(search)
             if(res.status === 200) {
-                dispatch(recieveGiphy(res.data))
+                return dispatch(recieveGiphy(arr))
             } else {
                 let flash = {
                     type: "error",
