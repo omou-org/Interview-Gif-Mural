@@ -9,15 +9,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const StuffLists = props => {
   let searchTerms = ["peace","dog","quaint","football","concentration","wtiness","slap","apparatus","north","nominate"];
-   const searchWords = searchTerms.forEach(searchWord => searchWord);
-   console.log(searchWords); 
-    const fetchGifs = useSelector(state => state.fetchGiphy.animal.data);
-    const dispatch = useDispatch();
-    // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
-    // console.log(fetchGifs);
-
-    useEffect(() => {
-      dispatch(fetchActions.fetchGif())
+  
+  const gifState = useSelector(state => state);
+  const dispatch = useDispatch();
+  // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
+  // console.log(gifState);
+  
+  useEffect(() => {
+    searchTerms.map(searchWord => {
+      dispatch(fetchActions.fetchGif(searchWord))
+    });
     }, [dispatch])
   
     // const renderData = (item) => {
@@ -26,7 +27,7 @@ const StuffLists = props => {
     
     // Have if statement up front to optimize load
 
-  if(!fetchGifs) {
+  if(!gifState) {
     return <div>Loading Gifs...</div>
   }
     
@@ -36,7 +37,7 @@ const StuffLists = props => {
         return renderData(item);
       })}</div>} */}
 
-    {<div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>}
+    {/* {<div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>} */}
       </>
     )
   }

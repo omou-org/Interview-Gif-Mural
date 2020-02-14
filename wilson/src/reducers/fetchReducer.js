@@ -8,11 +8,10 @@ export default function fetchGiphy(state = initialState, action) {
     switch(action.type) {
         case GET_GIF_SUCCESS:
             // newState = action.fetchGiphy
-            console.log(action.getGiphy)
-            newState = {...state, 
-                animal: action.getGiphy}
+            // console.log(action.getGiphy)
+            newState = {...state}
             // console.log(newState)
-            console.log("This works fetching success");
+            // console.log("This works fetching success");
             return newState;
         case GET_GIF_FAIL: 
             console.log("This failed");

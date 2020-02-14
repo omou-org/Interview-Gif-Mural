@@ -6,10 +6,11 @@ export function recieveGiphy(data) {
 }
 
 
-export function fetchGif() {
+export function fetchGif(query) {
     return (dispatch) => {
-        search("dog").then(res => {
-            // console.log(res);
+        search(query).then(res => {
+            console.log(res);
+            // console.log(search)
             if(res.status === 200) {
                 dispatch(recieveGiphy(res.data))
             } else {
