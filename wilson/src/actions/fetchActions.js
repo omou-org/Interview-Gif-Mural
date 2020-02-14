@@ -1,17 +1,14 @@
 import * as allActions from "./allActions"
 import search from "../utils/API"
-import initialState from "../reducers/initialState"
-// console.log(initialState)
 
 export function recieveGiphy(data) {
     return {type: allActions.GET_GIF_SUCCESS, getGiphy: data }
 }
 
 
-
-export function fetchGif(query) {
+export function fetchGif() {
     return (dispatch) => {
-        search(query).then(res => {
+        search("dog").then(res => {
             // console.log(res);
             if(res.status === 200) {
                 dispatch(recieveGiphy(res.data))

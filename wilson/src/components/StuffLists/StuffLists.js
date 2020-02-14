@@ -4,7 +4,13 @@ import * as fetchActions from '../../actions/fetchActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 // console.log(fetchActions);
+
+// Pass in searchWords to fetchGif function and grab a response.
+
 const StuffLists = props => {
+  let searchTerms = ["peace","dog","quaint","football","concentration","wtiness","slap","apparatus","north","nominate"];
+   const searchWords = searchTerms.forEach(searchWord => searchWord);
+   console.log(searchWords); 
     const fetchGifs = useSelector(state => state.fetchGiphy.animal.data);
     const dispatch = useDispatch();
     // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
