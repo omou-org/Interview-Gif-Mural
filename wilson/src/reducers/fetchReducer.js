@@ -8,11 +8,11 @@ export default function fetchGiphy(state = initialState, action) {
     switch(action.type) {
         case GET_GIF_SUCCESS:
             // newState = action.fetchGiphy
-            console.log(action.getGiphy)
-            newState = {...state, idea: action.getGiphy, animal: action.getGiphy}
+            // console.log(action.payload.data)
+            // newState = {...state, idea: action.payload.data}
             // console.log(newState)
             // console.log("This works fetching success");
-            return newState;
+            return handleGiphyFetch(state, action);
         case GET_GIF_FAIL: 
             console.log("This failed");
             return state;
@@ -23,3 +23,40 @@ export default function fetchGiphy(state = initialState, action) {
             return state;
     }
 }
+
+
+// First in Actions, add a key with the value of the search term into the response.
+// Second, refactor handleGiphyFetch function to first pass in state and action.
+// Then, assign query term + data to an empty variable.
+// Third, create a condition to check if the search query is = to the state.
+// Fourth, call updateGiphyState function and pass in the original state, query, and data.
+// Fifth, setup updateGiphyState by spreading the original state then targeting the query term and then assigning each term the data. 
+// Note, when doing step five use string for key values instead of regular keys
+
+export const handleGiphyFetch = (state, action) => {
+    // console.log(action)
+    let id;
+    let data;
+    if (action.id) {
+        data = action.payload.data
+        id = action.payload.id
+        return console.log(updateGiphyState(state, id, data))
+    }
+    return state
+}
+
+export const updateGiphyState = (state, id, data) => ({
+    ...state,
+    [id]: {
+        idea: data,
+        animal: data,
+        quaint: data,
+        football: data,
+        concentration: data,
+        witness: data,
+        slap: data,
+        apparatus: data,
+        north: data,
+        nominate: data
+    }
+});
