@@ -63,29 +63,73 @@ export function recieveGiphy(data) {
 //     };
 // }
 
+export const REQUEST_ALL = -1;
 
-export function fetchGif(query) {
-    return async (dispatch) => {
-        search(query).then(res => {
-            // console.log(res)
-            // console.log(res.data.data);
-            // console.log(search)
-            if(res.status === 200) {
-                return dispatch({
-                    type: allActions.GET_GIF_SUCCESS,
-                    "payload": {
-                        "data": res.data.data,
-                        "id": res.data.meta.response_id
-                    } 
-                });
-            } else {
-                let flash = {
-                    type: "error",
-                    title: "Error getting task list",
-                    content: "There was an error getting the task list. Please try agian."
+export const wrapGet = (endpoint, [startAction, successAction, failAction], {query} ) => 
+    async (dispatch) => {
+        const newAction = (allActions, response) => {
+            dispatch({
+                allActions,
+                "payload": {
+                    "query": query || REQUEST_ALL,
+                    response
                 }
-                dispatch({type: "DISPLAY_FLASH", data: flash})
-            }
-        })
+            });
+        };
+
+        newAction(startAction, {});
+        const requestURL = query ? `${endpoint}${query}` : endpoint;
+        console.log(requestURL)
+        try {
+            const response = await search(requestURL)
+
+            // Successful request
+            newAction(successAction, response);
+        } catch ({response}) {
+            newAction(failAction, response);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // search(query).then(res => {
+        //     Object.assign(res, {query: query})
+        //     // console.log(res)
+        //     // console.log(res.data.data);
+        //     // console.log(search)
+        //     if(res.status === 200) {
+        //         return dispatch({
+        //             type: allActions.GET_GIF_SUCCESS,
+        //             "payload": {
+        //                 "data": res.data.data,
+        //                 "query": res.query || REQUEST_ALL
+        //             } 
+        //         });
+        //     } else {
+        //         let flash = {
+        //             type: "error",
+        //             title: "Error getting task list",
+        //             content: "There was an error getting the task list. Please try agian."
+        //         }
+        //         dispatch({type: "DISPLAY_FLASH", data: flash})
+        //     }
+        // })
     };
-}
+
+    export const fetchGif = query => { 
+        let baseURL = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${process.env.REACT_APP_GIPHY_API_KEY}&limit=5`
+        wrapGet(
+            baseURL
+        [
+            allActions.GET_GIF_SUCCESS,
+            allActions.GET_GIF_LOADING,
+            allActions.GET_GIF_FAIL
+        ],
+        {query: query}
+    )}

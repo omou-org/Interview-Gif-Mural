@@ -33,21 +33,23 @@ export default function fetchGiphy(state = initialState, action) {
 // Fifth, setup updateGiphyState by spreading the original state then targeting the query term and then assigning each term the data. 
 // Note, when doing step five use string for key values instead of regular keys
 
+
+
 export const handleGiphyFetch = (state, action) => {
-    // console.log(action)
-    let id;
+    console.log(action)
+    let query;
     let data;
-    if (action.id) {
+    if (action.payload.query === state) {
         data = action.payload.data
-        id = action.payload.id
-        return console.log(updateGiphyState(state, id, data))
+        query = action.payload.query
+        return updateGiphyState(state, query, data)
     }
     return state
 }
 
-export const updateGiphyState = (state, id, data) => ({
+export const updateGiphyState = (state, query, data) => ({
     ...state,
-    [id]: {
+    [query]: {
         idea: data,
         animal: data,
         quaint: data,
