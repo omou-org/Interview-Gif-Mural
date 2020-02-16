@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import giphyReducer from "./fetchReducer";
 
 const rootReducer = combineReducers({
-    giphyReducer
+  giphyReducer
 });
 
 export default rootReducer;
