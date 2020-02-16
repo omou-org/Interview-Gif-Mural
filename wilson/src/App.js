@@ -1,10 +1,17 @@
-// Required Imports
+// Required Imports for React + Redux
 import React, { useEffect } from "react";
 import * as fetchActions from "./actions/fetchActions";
 import { useDispatch, useSelector } from "react-redux";
+
+// CSS import
 import "./App.css";
+
+// Material UI component Imports
 import GifCard from "./components/GifCard/GifCard";
 import Grid from "@material-ui/core/Grid";
+import AppBar from "@material-ui/core/AppBar"
+import Typography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core";
 
 function App() {
   // Created and array of search terms to loop through and pass it onto our useDispatch function
@@ -20,6 +27,15 @@ function App() {
     "north",
     "nominate"
   ];
+
+  const useStyles = makeStyles({
+    jumbotron: {
+      padding: "1.2em",
+      marginBottom: "1.2em"
+    }
+  })
+
+  const classes = useStyles();
   // Calling our hooks from react-redux
   // gifState is our global state
   const gifState = useSelector(state => state.giphyReducer);
@@ -135,20 +151,17 @@ function App() {
   // Mapped through our randomGif Array to create cards with rows of 5 and cols of 2 for each row.
   const gridCard = randomGif.map(card => {
     return (
-      <Grid item xs={6}>
-        {" "}
-        <GifCard key={card.query} word={card.query} link={card.link} />{" "}
+      <Grid key={card.query} item sm={6} align="center">
+        <GifCard key={card.query} word={card.query} link={card.link} />
       </Grid>
     );
   });
 
   return (
     <div className="App">
+      <AppBar position="static" className={classes.jumbotron}><Typography variant="h5">Gif Mural</Typography></AppBar>
       <Grid
         container
-        alignContent="center"
-        justify="center"
-        alignItems="center"
         spacing={2}
       >
         {gridCard}
