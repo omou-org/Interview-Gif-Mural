@@ -12,10 +12,17 @@ const StuffLists = props => {
   
   const gifState = useSelector(state => state.giphyReducer);
   const dispatch = useDispatch();
+  console.log(gifState)
   // const randomGif = gifState.idea.data[Math.floor(Math.random() * gifState.idea.length)];
-  console.log(gifState.idea.data);
-  // console.log(randomGif)
-  
+  let { idea, animal, quaint, football, concentration, witness, slap, apparatus, north, nominate } = gifState;
+  // console.log(idea)
+  if (idea && animal && quaint && football && concentration && witness && slap && apparatus && north && nominate) {
+      
+      // const randomIdea = idea[Math.floor(Math.random() * idea.length)].title
+      // console.log(randomIdea);
+  }
+
+
   useEffect(() => {
     searchTerms.forEach(searchWord => {
       dispatch(fetchActions.fetchGif(searchWord))

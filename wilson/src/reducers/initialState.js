@@ -9,8 +9,4 @@ export default {
     apparatus:"",
     north:"",
     nominate:""
-}
-
-// export default {
-//     giphyArr: []
-// }
+};
