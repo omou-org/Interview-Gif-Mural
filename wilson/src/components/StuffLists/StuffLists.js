@@ -10,17 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 const StuffLists = props => {
   let searchTerms = ["idea", "animal", "quaint", "football", "concentration", "witness", "slap", "apparatus", "north", "nominate"];
   
-  const gifState = useSelector(state => state);
+  const gifState = useSelector(state => state.giphyReducer);
   const dispatch = useDispatch();
-  // const randomGif = fetchGifs[Math.floor(Math.random() * fetchGifs.length)]
-  console.log(gifState);
+  // const randomGif = gifState.idea.data[Math.floor(Math.random() * gifState.idea.length)];
+  console.log(gifState.idea.data);
+  // console.log(randomGif)
   
   useEffect(() => {
-    // dispatch(fetchActions.fetchGif("dog"))
     searchTerms.forEach(searchWord => {
       dispatch(fetchActions.fetchGif(searchWord))
     });
-    }, [dispatch])
+    }, [])
   
     // const renderData = (item) => {
     //   return <div key={item.id}>{item.title}</div>
@@ -38,7 +38,10 @@ const StuffLists = props => {
         return renderData(item);
       })}</div>} */}
 
-    {/* {<div className="">{fetchGifs[Math.floor(Math.random() * fetchGifs.length)].title}</div>} */}
+    {/* {<div className="">{gifState.idea[Math.floor(Math.random() * gifState.idea.length)]}</div>} */}
+    {/* <div className="">{gifState.idea.map(e => {
+      return console.log(e)
+    })}</div> */}
       </>
     )
   }

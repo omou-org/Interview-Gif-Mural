@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import fetchGiphy from "./fetchReducer";
+import giphyReducer from "./fetchReducer";
 
 const rootReducer = combineReducers({
-    fetchGiphy
+    giphyReducer
 });
 
 export default rootReducer;
