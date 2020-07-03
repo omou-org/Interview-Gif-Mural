@@ -1,6 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import gifList from './gifList';
+
+class App extends Component {
+  render() {
+      return (
+        <div className="app">
+          <gifList />
+        </div>
+      );
+    }
+}
 
 function App() {
   return (
