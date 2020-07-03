@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as gifActions from '../../actions/gifActions';
+import * as gifActions from './actions/gifActions';
 import PropTypes from 'prop-types';
 import React from 'react';
 

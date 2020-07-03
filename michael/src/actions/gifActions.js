@@ -15,7 +15,7 @@ export function fetchGif() {
       mode: 'cors',
       credentials: 'include',
       headers: {
-        'x-api-key': apiKey,
+        // 'x-api-key': apiKey,
         'Accept': 'application/json'
       }
     })
