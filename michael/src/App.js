@@ -3,6 +3,7 @@ import "./App.css";
 import React, { useEffect } from "react";
 import * as fetchActions from "./actions/gifActions";
 import { useDispatch, useSelector } from "react-redux";
+import logo from './logo.svg';
 
 //Material UI imports
 import GifCard from "./GifCard";
@@ -35,6 +36,9 @@ function App() {
   });
 
   return (
+    <header>
+      <img src={logo} className="App-logo" alt="logo" />
+    </header>
     <div className="App">
       <div>
         <Grid
@@ -44,6 +48,7 @@ function App() {
           {gridCard}
         </Grid>
       </div>
+
     </div>
   );
 }
