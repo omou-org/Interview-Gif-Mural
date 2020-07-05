@@ -8,15 +8,16 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
-      },
-      bullet: {
-        display: 'inline-block',
-        margin: '10 10px',
-        transform: 'scale(0.8)',
-      },
+        maxWidth: 400,
+    },
+
+    bullet: {
+    display: 'inline-block',
+    margin: '10 10px',
+    },
+
     media: {
-        height: 140,
+        height: 250,
     },
 });
 
@@ -25,14 +26,11 @@ const SimpleCard = word => {
     return (
         <Card className={classes.root}>
         <CardActionArea>
-            <a href={word.link}>
-                <CardMedia
-                    className={classes.media}
-                    image= {word.link}
-                    title={word.name}
-                >
-                </CardMedia>
-            </a>
+            <CardMedia
+                className={classes.media}
+                image= {word.link}
+                title={word.name}
+            />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
                 {word.name}

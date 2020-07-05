@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 //Material UI imports
 import GifCard from "./GifCard";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography"
 
 function App() {
   let words = [
