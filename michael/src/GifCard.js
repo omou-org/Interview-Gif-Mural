@@ -25,11 +25,14 @@ const SimpleCard = word => {
     return (
         <Card className={classes.root}>
         <CardActionArea>
-            <CardMedia
-                className={classes.media}
-                image= {word.link}
-                title={word.name}
-            />
+            <a href={word.link}>
+                <CardMedia
+                    className={classes.media}
+                    image= {word.link}
+                    title={word.name}
+                >
+                </CardMedia>
+            </a>
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
                 {word.name}

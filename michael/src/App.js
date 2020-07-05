@@ -42,43 +42,43 @@ function App() {
     && witness && slap && apparatus && north && nominate)
   {
     const ideaGif = {
-      link: idea[Math.random() * idea.length].images.original.url,
+      link: idea.images.original.url,
       name: "idea"
     };
     const animalGif = {
-      link: animal[Math.random() * animal.length].images.original.url,
+      link: animal.images.original.url,
       name: "animal"
     };
     const quaintGif = {
-      link: quaint[Math.random() * quaint.length].images.original.url,
+      link: quaint.images.original.url,
       name: "quaint"
     };
     const footballGif = {
-      link: football[Math.random() * football.length].images.original.url,
+      link: football.images.original.url,
       name: "football"
     };
     const concentrationGif = {
-      link: concentration[Math.random() * concentration.length].images.original.url,
+      link: concentration.images.original.url,
       name:"concentration"
     };
     const witnessGif = {
-      link: witness[Math.random() * witness.length].images.original.url,
+      link: witness.images.original.url,
       name: "witness"
     };
     const slapGif = {
-      link: slap[Math.random() * slap.length].images.original.url,
+      link: slap.images.original.url,
       name: "slap"
     };
     const apparatusGif = {
-      link: apparatus[Math.random() * apparatus.length].images.original.url,
+      link: apparatus.images.original.url,
       name: "apparatus"
     };
     const northGif = {
-      link: north[Math.random() * north.length].images.original.url,
+      link: north.images.original.url,
       name: "north"
     };
     const nominateGif = {
-      link: nominate[Math.random() * nominate.length].images.original.url,
+      link: nominate.images.original.url,
       name: "nominate"
     };
     randomWords.push(

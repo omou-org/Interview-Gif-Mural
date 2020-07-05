@@ -7,14 +7,14 @@ export function receiveGif(data) {
 
 export function search(word){
   var mykey="LbcdDpV8yLnnqN8tULmaKuH31Qn3zvFc";
-  let url = `https://api.giphy.com/v1/gifs/search?q=${word}&api_key=${mykey}&limit=4`;
+  let url = `https://api.giphy.com/v1/gifs/random?api_key=${mykey}&tag=${word}&limit=1`;
   return axios.get(url);
 };
 
-export function fetchGif(request) {
+export function fetchGif(name) {
   return dispatch => {
-    search(request).then(res => {
-      Object.assign(res.data.data, { request: request });
+    search(name).then(res => {
+      Object.assign(res.data.data, { query: name });
       return dispatch(receiveGif(res.data.data));
       }
     )
