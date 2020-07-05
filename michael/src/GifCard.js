@@ -26,10 +26,10 @@ const SimpleCard = word => {
         <Card className={classes.root}>
         <CardActionArea>
             <CardMedia
-            className={classes.media}
-            image={word.link}
-            title={word.name}>
-            </CardMedia>
+                className={classes.media}
+                image= {word.link}
+                title={word.name}
+            />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
                 {word.name}
